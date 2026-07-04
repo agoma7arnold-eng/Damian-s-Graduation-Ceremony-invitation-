@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damian's Graduation Celebration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@300;400;600&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .bg-pattern { background-color: #0f172a; background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 20px 20px; }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen flex items-center justify-center p-4 py-12">
+
+    <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full relative overflow-hidden transform transition-all hover:scale-[1.01] duration-300">
+        
+        <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-white opacity-20 rounded-full"></div>
+            <div class="absolute -bottom-8 -left-8 w-24 h-24 bg-white opacity-20 rounded-full"></div>
+        </div>
+
+        <div class="relative z-10 px-8 pb-8 pt-12 flex flex-col items-center text-center">
+            
+            <div class="bg-white p-4 rounded-full shadow-lg mb-4 border-4 border-yellow-50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+            </div>
+
+            <h2 class="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-2">You're Invited to Celebrate</h2>
+            <h1 class="text-5xl font-serif text-gray-800 mb-2">Damian's</h1>
+            <h2 class="text-3xl font-serif text-yellow-600 italic mb-6">Graduation</h2>
+
+            <!-- Photo Section -->
+            <div class="mb-6 relative">
+                <!-- Ensure "23222.jpg" is in the same folder as this file -->
+                <img src="23222.jpg" alt="Chef Damian" class="w-48 h-48 rounded-full object-cover border-4 border-yellow-400 shadow-md mx-auto">
+            </div>
+
+            <div class="w-16 h-1 bg-yellow-400 rounded mb-6"></div>
+
+            <p class="text-gray-600 mb-6 leading-relaxed">
+                Join us in celebrating this special milestone! Damian has conquered his training, and we couldn't be more proud.
+            </p>
+
+            <!-- Video Section -->
+            <div class="w-full mb-8 rounded-xl overflow-hidden shadow-md bg-gray-100 border border-gray-200">
+                <video controls class="w-full aspect-video object-cover">
+                    <!-- Replace this with your video file name, e.g., "cooking-video.mp4" -->
+                    <source src="cooking-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="w-full bg-gray-50 rounded-xl p-4 mb-8 text-sm text-gray-600 border border-gray-100">
+                <p class="font-semibold text-gray-800 mb-1">Send your warmest wishes!</p>
+                <p>Click the button below to send a congratulatory text directly via WhatsApp.</p>
+            </div>
+
+            <button onclick="sendWhatsApp()" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/30 flex items-center justify-center gap-3">
+                Send Congratulations
+            </button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var duration = 3 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+                var particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+        };
+
+        function sendWhatsApp() {
+            const phoneNumber = "254720975663";
+            const message = "Congratulations Damian🎉🙏🥂"; 
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
