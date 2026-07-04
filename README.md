@@ -34,7 +34,7 @@
 
             <h2 class="text-sm font-semibold tracking-widest text-gray-400 uppercase mb-2">You are Invited to</h2>
             <h1 class="text-4xl font-serif text-gray-800 mb-2">Chef Damian's</h1>
-            <h2 class="text-2xl font-serif text-amber-600 italic mb-6">Graduation</h2>
+            <h2 class="text-2xl font-serif text-amber-600 italic mb-6">Graduation Ceremony</h2>
 
             <div class="mb-6 relative w-full max-w-[240px]">
                 <img src="23222.jpg" alt="Chef Damian Portrait" class="w-full aspect-[3/4] rounded-2xl object-cover border-4 border-amber-500 shadow-md mx-auto">
@@ -59,8 +59,7 @@
             <div class="text-left w-full text-xs text-gray-500 mb-6 space-y-2">
                 <p class="font-semibold text-gray-700">Important Notes for Guests:</p>
                 <ul class="list-disc pl-4 space-y-1">
-                    <li>Please arrive 15 minutes before the ceremony start time.</li>
-                    <li>Join us for a special culinary tasting session right after the main event.</li>
+                    
                 </ul>
             </div>
 
